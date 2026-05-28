@@ -1,0 +1,32 @@
+aid: chucknorris-io
+name: chucknorris.io
+description: "JSON API for hand curated Chuck Norris jokes"
+url: https://api.chucknorris.io
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Entertainment"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Entertainment
+  - Public APIs
+apis:
+  - name: chucknorris.io
+    description: "JSON API for hand curated Chuck Norris jokes"
+    humanURL: https://api.chucknorris.io
+    baseURL: https://api.chucknorris.io
+    tags:
+      - Entertainment
+    properties:
+      - type: Documentation
+        url: https://api.chucknorris.io
+common:
+  - type: Website
+    url: https://api.chucknorris.io
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
