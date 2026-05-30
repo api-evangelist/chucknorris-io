@@ -1,0 +1,106 @@
+extends:
+  - spectral:oas
+formats:
+  - oas3
+rules:
+  # Provider conventions enforced from the chucknorris.io OpenAPI spec.
+  chucknorris-info-contact:
+    description: Spec must include the chucknorris.io maintainer contact.
+    severity: warn
+    given: $.info.contact
+    then:
+      - field: name
+        function: truthy
+      - field: email
+        function: truthy
+
+  chucknorris-info-license-gpl:
+    description: Top-level spec license must be GPL-3.0 (matches chuck-api).
+    severity: warn
+    given: $.info.license
+    then:
+      - field: name
+        function: pattern
+        functionOptions:
+          match: "^GPL-3\\.0$"
+
+  chucknorris-server-base-url:
+    description: The only documented production server is https://api.chucknorris.io.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.chucknorris\\.io$"
+
+  chucknorris-paths-under-jokes:
+    description: All operation paths must live under /jokes.
+    severity: error
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/jokes(/.*)?$"
+      field: "@key"
+
+  chucknorris-operation-summary-title-case:
+    description: Operation summaries should be in Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete,options,head].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][A-Za-z0-9]*)(\\s[A-Z][A-Za-z0-9]*)*$"
+
+  chucknorris-operation-id-required:
+    description: Every operation must declare an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete,options,head]
+    then:
+      field: operationId
+      function: truthy
+
+  chucknorris-operation-id-camelcase:
+    description: operationId should be camelCase (e.g. getRandomJoke).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete,options,head].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  chucknorris-success-must-have-json:
+    description: 2xx responses must include an application/json content type.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete,options,head].responses[?(@property.match(/2\d\d/))].content
+    then:
+      field: application/json
+      function: truthy
+
+  chucknorris-joke-schema-required-fields:
+    description: The Joke schema must require the canonical chucknorris.io fields.
+    severity: error
+    given: $.components.schemas.Joke
+    then:
+      field: required
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            enum:
+              - id
+              - value
+              - categories
+              - icon_url
+              - url
+              - created_at
+              - updated_at
+
+  chucknorris-search-query-min-length:
+    description: The /jokes/search `query` parameter should declare a minLength.
+    severity: warn
+    given: $.paths['/jokes/search'].get.parameters[?(@.name=='query')].schema
+    then:
+      field: minLength
+      function: truthy

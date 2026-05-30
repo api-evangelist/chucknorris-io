@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "chuck": "https://api-evangelist.github.io/chucknorris-io/vocab#",
+    "id": "@id",
+    "type": "@type",
+
+    "Joke": "chuck:Joke",
+    "CategoryList": "chuck:CategoryList",
+    "SearchResult": "chuck:SearchResult",
+
+    "value": {
+      "@id": "schema:text",
+      "@type": "xsd:string"
+    },
+    "categories": {
+      "@id": "chuck:category",
+      "@container": "@set"
+    },
+    "icon_url": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updated_at": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "total": {
+      "@id": "chuck:total",
+      "@type": "xsd:integer"
+    },
+    "result": {
+      "@id": "chuck:result",
+      "@container": "@set"
+    },
+
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/"
+  }
+}

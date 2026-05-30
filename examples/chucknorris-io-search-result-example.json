@@ -1,0 +1,23 @@
+{
+  "total": 2,
+  "result": [
+    {
+      "categories": ["dev"],
+      "created_at": "2020-01-05 13:42:25.099703",
+      "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+      "id": "Yke6bi5xSdWvSq_dkCCGkA",
+      "updated_at": "2020-01-05 13:42:25.099703",
+      "url": "https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA",
+      "value": "Chuck Norris's code compiles before he writes it."
+    },
+    {
+      "categories": ["dev"],
+      "created_at": "2020-01-05 13:42:25.099703",
+      "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+      "id": "8w3Pj9z6Q9KqgKfQ8KkLPg",
+      "updated_at": "2020-01-05 13:42:25.099703",
+      "url": "https://api.chucknorris.io/jokes/8w3Pj9z6Q9KqgKfQ8KkLPg",
+      "value": "Chuck Norris can divide by zero."
+    }
+  ]
+}

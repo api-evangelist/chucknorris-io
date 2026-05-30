@@ -1,0 +1,83 @@
+vocabulary:
+  name: chucknorris.io Vocabulary
+  version: "1.0.0"
+  description: >-
+    Controlled vocabulary for the Chuck Norris jokes API maintained by
+    @matchilling at https://api.chucknorris.io. Covers the joke resource, its
+    16 categories, the search envelope, and the surrounding ecosystem terms.
+  source: https://api.chucknorris.io
+  created: "2026-05-30"
+  modified: "2026-05-30"
+
+terms:
+  - term: Joke
+    definition: A single hand-curated Chuck Norris fact returned by the API. Synonymous with "fact" in the documentation.
+    aliases: [Fact, ChuckFact]
+    relatedTerms: [Category, SearchResult]
+
+  - term: Category
+    definition: Topical bucket assigned to a joke. Used to constrain random retrieval.
+    aliases: []
+    relatedTerms: [Joke]
+
+  - term: CategoryList
+    definition: The full list of supported joke categories returned by /jokes/categories.
+    aliases: []
+    relatedTerms: [Category]
+
+  - term: SearchResult
+    definition: Envelope containing a total count and the array of jokes that matched a /jokes/search query.
+    aliases: []
+    relatedTerms: [Joke]
+
+  - term: JokeId
+    definition: Stable opaque identifier for a Joke (22-character base64-style string).
+    aliases: [Id]
+    relatedTerms: [Joke]
+
+  - term: IconUrl
+    definition: URL of the Chuck Norris avatar image attached to each Joke response.
+    aliases: []
+    relatedTerms: [Joke]
+
+categories:
+  description: The 16 categories returned by /jokes/categories.
+  data:
+    - name: animal
+    - name: career
+    - name: celebrity
+    - name: dev
+    - name: explicit
+    - name: fashion
+    - name: food
+    - name: history
+    - name: money
+    - name: movie
+    - name: music
+    - name: political
+    - name: religion
+    - name: science
+    - name: sport
+    - name: travel
+
+ecosystem:
+  description: Sibling projects in the chucknorris-io GitHub organization.
+  data:
+    - name: chuck-api
+      description: Spring Boot Java service that powers api.chucknorris.io.
+    - name: chuck-db
+      description: PostgreSQL schema, stored procedures, and migrations.
+    - name: client-nodejs
+      description: Official Node.js client library.
+    - name: client-java
+      description: Official Java client library.
+    - name: google-chrome-extension
+      description: Official Chrome extension surfacing Chuck Norris facts.
+    - name: storybook-addon
+      description: Storybook addon injecting Chuck Norris facts into dev workflows.
+    - name: app-facebook-messenger
+      description: Facebook Messenger bot wrapping the API.
+    - name: app-alexa-skill
+      description: Alexa skill wrapping the API.
+    - name: swear-words
+      description: Curated profanity dictionary used to flag explicit jokes.

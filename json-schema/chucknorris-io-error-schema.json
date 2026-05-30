@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/chucknorris-io/json-schema/chucknorris-io-error-schema.json",
+  "title": "Error",
+  "description": "Spring Boot style error envelope returned by api.chucknorris.io on failures.",
+  "type": "object",
+  "properties": {
+    "timestamp": {"type": "string", "format": "date-time"},
+    "status": {"type": "integer"},
+    "error": {"type": "string"},
+    "path": {"type": "string"},
+    "message": {"type": "string"}
+  },
+  "additionalProperties": true
+}

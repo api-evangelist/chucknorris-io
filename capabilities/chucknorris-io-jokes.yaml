@@ -1,0 +1,121 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "Chuck Norris Jokes API — Jokes"
+  description: >-
+    Jokes — random retrieval and lookup by identifier. 2 operations. Lead
+    operation: Get Random Joke. Self-contained Naftiko capability covering one
+    chucknorris.io business surface.
+  tags:
+    - Chuck Norris
+    - Jokes
+  created: "2026-05-30"
+  modified: "2026-05-30"
+
+binds: []
+
+capability:
+  consumes:
+    - type: http
+      namespace: chucknorris-io-jokes
+      baseUri: https://api.chucknorris.io
+      description: chucknorris.io Jokes business capability. Self-contained, no shared references.
+      resources:
+        - name: jokes-random
+          path: /jokes/random
+          operations:
+            - name: getrandomjoke
+              method: GET
+              description: Chuck Norris Get a random joke, optionally constrained to a category.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: category
+                  in: query
+                  type: string
+                  description: Optional category to constrain the random selection.
+                  required: false
+        - name: jokes-id
+          path: /jokes/{id}
+          operations:
+            - name: getjokebyid
+              method: GET
+              description: Chuck Norris Retrieve a single joke by its identifier.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  description: Joke identifier.
+                  required: true
+      authentication:
+        type: none
+  exposes:
+    - type: rest
+      namespace: chucknorris-io-jokes-rest
+      port: 8080
+      description: REST adapter for chucknorris.io Jokes. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/jokes/random
+          name: jokes-random
+          description: REST surface for /jokes/random.
+          operations:
+            - method: GET
+              name: getrandomjoke
+              description: Chuck Norris Get a random joke.
+              call: chucknorris-io-jokes.getrandomjoke
+              with:
+                category: rest.category
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/jokes/{id}
+          name: jokes-id
+          description: REST surface for /jokes/{id}.
+          operations:
+            - method: GET
+              name: getjokebyid
+              description: Chuck Norris Retrieve a joke by id.
+              call: chucknorris-io-jokes.getjokebyid
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: chucknorris-io-jokes-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for chucknorris.io Jokes. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: chucknorris-get-random-joke
+          description: Chuck Norris Get a random joke (optionally by category).
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: false
+          call: chucknorris-io-jokes.getrandomjoke
+          with:
+            category: tools.category
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: chucknorris-get-joke-by-id
+          description: Chuck Norris Retrieve a joke by identifier.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: chucknorris-io-jokes.getjokebyid
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.

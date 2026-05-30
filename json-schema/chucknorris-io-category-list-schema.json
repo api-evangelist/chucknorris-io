@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/chucknorris-io/json-schema/chucknorris-io-category-list-schema.json",
+  "title": "CategoryList",
+  "description": "List of supported joke category identifiers returned by /jokes/categories.",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "enum": [
+      "animal",
+      "career",
+      "celebrity",
+      "dev",
+      "explicit",
+      "fashion",
+      "food",
+      "history",
+      "money",
+      "movie",
+      "music",
+      "political",
+      "religion",
+      "science",
+      "sport",
+      "travel"
+    ]
+  },
+  "uniqueItems": true
+}

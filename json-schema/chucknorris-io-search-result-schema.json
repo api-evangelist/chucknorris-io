@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/chucknorris-io/json-schema/chucknorris-io-search-result-schema.json",
+  "title": "SearchResult",
+  "description": "Envelope returned by /jokes/search containing matching jokes and a total count.",
+  "type": "object",
+  "required": ["total", "result"],
+  "properties": {
+    "total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of jokes matching the query."
+    },
+    "result": {
+      "type": "array",
+      "description": "Matching jokes.",
+      "items": {
+        "$ref": "chucknorris-io-joke-schema.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

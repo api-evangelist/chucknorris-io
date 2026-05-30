@@ -1,0 +1,79 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "Chuck Norris Jokes API — Search"
+  description: >-
+    Search — free-text search across the Chuck Norris joke corpus. 1 operation.
+    Lead operation: Search Jokes. Self-contained Naftiko capability covering
+    one chucknorris.io business surface.
+  tags:
+    - Chuck Norris
+    - Search
+  created: "2026-05-30"
+  modified: "2026-05-30"
+
+binds: []
+
+capability:
+  consumes:
+    - type: http
+      namespace: chucknorris-io-search
+      baseUri: https://api.chucknorris.io
+      description: chucknorris.io Search business capability. Self-contained, no shared references.
+      resources:
+        - name: jokes-search
+          path: /jokes/search
+          operations:
+            - name: searchjokes
+              method: GET
+              description: Chuck Norris Search jokes by free-text query.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: query
+                  in: query
+                  type: string
+                  description: Free-text search term.
+                  required: true
+      authentication:
+        type: none
+  exposes:
+    - type: rest
+      namespace: chucknorris-io-search-rest
+      port: 8080
+      description: REST adapter for chucknorris.io Search. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/jokes/search
+          name: jokes-search
+          description: REST surface for /jokes/search.
+          operations:
+            - method: GET
+              name: searchjokes
+              description: Chuck Norris Search jokes by free-text query.
+              call: chucknorris-io-search.searchjokes
+              with:
+                query: rest.query
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: chucknorris-io-search-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for chucknorris.io Search. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: chucknorris-search-jokes
+          description: Chuck Norris Search jokes by free-text query.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: chucknorris-io-search.searchjokes
+          with:
+            query: tools.query
+          outputParameters:
+            - type: object
+              mapping: $.

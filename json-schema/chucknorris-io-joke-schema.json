@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/chucknorris-io/json-schema/chucknorris-io-joke-schema.json",
+  "title": "Joke",
+  "description": "A single Chuck Norris joke (fact) as returned by api.chucknorris.io.",
+  "type": "object",
+  "required": [
+    "id",
+    "value",
+    "categories",
+    "icon_url",
+    "url",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier for the joke.",
+      "minLength": 1,
+      "examples": ["Yke6bi5xSdWvSq_dkCCGkA"]
+    },
+    "value": {
+      "type": "string",
+      "description": "The Chuck Norris fact text.",
+      "minLength": 1
+    },
+    "categories": {
+      "type": "array",
+      "description": "Categories this joke belongs to (empty when uncategorized).",
+      "items": {"type": "string"}
+    },
+    "icon_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the Chuck Norris avatar image."
+    },
+    "url": {
+      "type": "string",
+      "description": "Canonical URL for the joke on chucknorris.io."
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp the joke was created (UTC).",
+      "examples": ["2020-01-05 13:42:25.099703"]
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Timestamp the joke was last updated (UTC)."
+    }
+  },
+  "additionalProperties": false
+}
