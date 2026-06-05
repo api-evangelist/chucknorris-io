@@ -1,12 +1,10 @@
 aid: chucknorris-io
 name: chucknorris.io
 description: >-
-  Free JSON REST API for hand-curated Chuck Norris jokes (facts) maintained by
-  @matchilling. Supports random retrieval, category filtering, full-text
-  search, and direct lookup by joke identifier. Hosted at api.chucknorris.io
-  with an open-source Spring Boot service (chuck-api), official Node.js and
-  Java client SDKs, a Chrome extension, a Storybook addon, and Messenger /
-  Alexa companion apps published under the chucknorris-io GitHub organization.
+  Free JSON REST API for hand-curated Chuck Norris jokes (facts) maintained by @matchilling. Supports random retrieval,
+  category filtering, full-text search, and direct lookup by joke identifier. Hosted at api.chucknorris.io with an
+  open-source Spring Boot service (chuck-api), official Node.js and Java client SDKs, a Chrome extension, a Storybook
+  addon, and Messenger / Alexa companion apps published under the chucknorris-io GitHub organization.
 url: https://api.chucknorris.io
 image: https://api.chucknorris.io/img/avatar/chuck-norris.png
 specificationVersion: '0.20'
@@ -26,9 +24,8 @@ tags:
 apis:
   - name: Chuck Norris Jokes API
     description: >-
-      JSON REST API exposing hand-curated Chuck Norris jokes. Endpoints cover
-      random retrieval, category-constrained random retrieval, listing of the
-      16 supported categories, free-text search, and lookup by joke id. No
+      JSON REST API exposing hand-curated Chuck Norris jokes. Endpoints cover random retrieval, category-constrained
+      random retrieval, listing of the 16 supported categories, free-text search, and lookup by joke id. No
       authentication is required and no rate limits are documented.
     humanURL: https://api.chucknorris.io
     baseURL: https://api.chucknorris.io
@@ -105,12 +102,6 @@ common:
     url: rules/chucknorris-io-rules.yml
   - type: Vocabulary
     url: vocabulary/chucknorris-io-vocabulary.yml
-  - type: NaftikoCapability
-    url: capabilities/chucknorris-io-jokes.yaml
-  - type: NaftikoCapability
-    url: capabilities/chucknorris-io-categories.yaml
-  - type: NaftikoCapability
-    url: capabilities/chucknorris-io-search.yaml
   - type: SDK
     url: https://github.com/chucknorris-io/client-nodejs
     data:
@@ -162,7 +153,9 @@ common:
       - name: Postman Collection
         description: Maintained by the chucknorris-io org at chuck-infra-tools/api_postman_collection.json.
       - name: Third-Party MCP Servers
-        description: Community MCP servers wrap api.chucknorris.io (e.g., thomasma/chuckjokes-mcpserver, BACH-AI-Tools/chuck_norris). No first-party MCP server.
+        description: >-
+          Community MCP servers wrap api.chucknorris.io (e.g., thomasma/chuckjokes-mcpserver,
+          BACH-AI-Tools/chuck_norris). No first-party MCP server.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

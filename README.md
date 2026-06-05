@@ -1,81 +1,81 @@
 # chucknorris.io (chucknorris-io)
 
-Free JSON REST API for hand-curated Chuck Norris jokes (facts) maintained by
-@matchilling. Supports random retrieval, category filtering, full-text search,
-and direct lookup by joke identifier. Hosted at api.chucknorris.io with an
-open-source Spring Boot service (chuck-api) and official client SDKs in
-Node.js and Java.
+Free JSON REST API for hand-curated Chuck Norris jokes (facts) maintained by @matchilling. Supports random retrieval, category filtering, full-text search, and direct lookup by joke identifier. Hosted at api.chucknorris.io with an open-source Spring Boot service (chuck-api), official Node.js and Java client SDKs, a Chrome extension, a Storybook addon, and Messenger / Alexa companion apps published under the chucknorris-io GitHub organization.
 
-**APIs.yml:** [apis.yml](apis.yml)
-
-## Type
-
-- **x-type:** opensource
-- **x-tier:** 3 (bulk-registered from public-apis, enriched 2026-05-30)
-- **source:** [public-apis/public-apis](https://github.com/public-apis/public-apis) — category: Entertainment
-- **license:** GPL-3.0 (chuck-api service source)
-
-## APIs
-
-### Chuck Norris Jokes API
-
-JSON REST API exposing hand-curated Chuck Norris jokes. No authentication
-required, no documented rate limits.
-
-| Operation | Method | Path |
-|---|---|---|
-| Get Random Joke | GET | `/jokes/random` |
-| Get Random Joke (by category) | GET | `/jokes/random?category={category}` |
-| List Joke Categories | GET | `/jokes/categories` |
-| Search Jokes | GET | `/jokes/search?query={query}` |
-| Get Joke By Id | GET | `/jokes/{id}` |
-
-Categories: `animal`, `career`, `celebrity`, `dev`, `explicit`, `fashion`,
-`food`, `history`, `money`, `movie`, `music`, `political`, `religion`,
-`science`, `sport`, `travel`.
-
-## Artifacts
-
-| Folder | Files |
-|---|---|
-| `openapi/` | `chucknorris-io-openapi.yml` |
-| `rules/` | `chucknorris-io-rules.yml` |
-| `capabilities/` | `chucknorris-io-jokes.yaml`, `chucknorris-io-categories.yaml`, `chucknorris-io-search.yaml` |
-| `json-schema/` | `chucknorris-io-joke-schema.json`, `chucknorris-io-category-list-schema.json`, `chucknorris-io-search-result-schema.json`, `chucknorris-io-error-schema.json` |
-| `json-structure/` | `chucknorris-io-joke-structure.json`, `chucknorris-io-category-list-structure.json`, `chucknorris-io-search-result-structure.json`, `chucknorris-io-error-structure.json` |
-| `json-ld/` | `chucknorris-io-context.jsonld` |
-| `examples/` | 5 operation examples + 4 entity examples |
-| `vocabulary/` | `chucknorris-io-vocabulary.yml` |
-
-## Ecosystem
-
-The [chucknorris-io](https://github.com/chucknorris-io) GitHub organization
-publishes:
-
-- **chuck-api** — Java/Spring Boot service powering api.chucknorris.io.
-- **chuck-db** — PostgreSQL schema, stored procedures, and migrations.
-- **client-nodejs** — Official Node.js client library.
-- **client-java** — Official Java client library.
-- **google-chrome-extension** — Official Chrome extension.
-- **storybook-addon** — Storybook addon injecting Chuck Norris facts.
-- **app-facebook-messenger** — Messenger bot wrapping the API.
-- **app-alexa-skill** — Alexa skill wrapping the API.
-- **chuck-infra-tools** — Postman collection and dev utilities.
-- **swear-words** — Curated profanity dictionary used to flag explicit jokes.
-
-No first-party MCP server or Anthropic Skill exists; several third-party MCP
-servers wrap the API (e.g., thomasma/chuckjokes-mcpserver,
-BACH-AI-Tools/chuck_norris).
+**APIs.json:** [https://api.chucknorris.io](https://api.chucknorris.io)
 
 ## Tags
 
-Entertainment, Jokes, Chuck Norris, Open Source, Public APIs
+- Entertainment
+- Jokes
+- Chuck Norris
+- Open Source
+- Public APIs
 
 ## Timestamps
 
 - **Created:** 2026-05-28
 - **Modified:** 2026-05-30
 
+## APIs
+
+### Chuck Norris Jokes API
+
+JSON REST API exposing hand-curated Chuck Norris jokes. Endpoints cover random retrieval, category-constrained random retrieval, listing of the 16 supported categories, free-text search, and lookup by joke id. No authentication is required and no rate limits are documented.
+
+- **Human URL:** [https://api.chucknorris.io](https://api.chucknorris.io)
+- **Base URL:** `https://api.chucknorris.io`
+
+#### Tags
+
+- Entertainment
+- Jokes
+- Chuck Norris
+
+#### Properties
+
+- [Documentation](https://api.chucknorris.io)
+- [OpenAPI](openapi/chucknorris-io-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/chucknorris-io.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chucknorris-io.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/chucknorris-io-joke-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/chucknorris-io-category-list-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/chucknorris-io-search-result-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/chucknorris-io-error-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Structure](json-structure/chucknorris-io-joke-structure.json)
+- [JSON Structure](json-structure/chucknorris-io-category-list-structure.json)
+- [JSON Structure](json-structure/chucknorris-io-search-result-structure.json)
+- [JSON Structure](json-structure/chucknorris-io-error-structure.json)
+- [J S O N- L D](json-ld/chucknorris-io-context.jsonld)
+- [Example](examples/chucknorris-io-getRandomJoke-example.json)
+- [Example](examples/chucknorris-io-getRandomJoke-by-category-example.json)
+- [Example](examples/chucknorris-io-listCategories-example.json)
+- [Example](examples/chucknorris-io-searchJokes-example.json)
+- [Example](examples/chucknorris-io-getJokeById-example.json)
+- [Example](examples/chucknorris-io-joke-example.json)
+- [Example](examples/chucknorris-io-category-list-example.json)
+- [Example](examples/chucknorris-io-search-result-example.json)
+- [Example](examples/chucknorris-io-error-example.json)
+- [Authentication](https://api.chucknorris.io)
+- [Rate Limits](https://api.chucknorris.io)
+
+## Common Properties
+
+- [Website](https://api.chucknorris.io)
+- [GitHub Organization](https://github.com/chucknorris-io)
+- [GitHub Repository](https://github.com/chucknorris-io/chuck-api)
+- [License](https://github.com/chucknorris-io/chuck-api/blob/master/LICENSE)
+- [Public APIs Listing](https://github.com/public-apis/public-apis)
+- [Spectral Rules](rules/chucknorris-io-rules.yml)
+- [Vocabulary](vocabulary/chucknorris-io-vocabulary.yml)
+- [SDK](https://github.com/chucknorris-io/client-nodejs)
+- [SDK](https://github.com/chucknorris-io/client-java)
+- [Integrations](undefined)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Tools](undefined)
+
 ## Maintainers
 
-- **Kin Lane** — kin@apievangelist.com
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
