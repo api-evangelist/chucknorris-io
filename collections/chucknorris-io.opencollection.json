@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Chuck Norris Jokes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jokes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Random Joke",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chucknorris.io/jokes/random",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Restrict the random selection to a single category."
+              }
+            ]
+          },
+          "docs": "Retrieve a single random Chuck Norris joke. Optionally constrain the\nrandom selection to a specific category by passing the `category` query\nparameter (must be one of the values returned by `/jokes/categories`).\n"
+        },
+        {
+          "info": {
+            "name": "Get Joke By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chucknorris.io/jokes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Joke identifier as returned by other endpoints."
+              }
+            ]
+          },
+          "docs": "Retrieve a single joke by its 22-character identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Joke Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chucknorris.io/jokes/categories"
+          },
+          "docs": "Return the full list of supported joke categories. Use any of these\nvalues with the `category` parameter of `/jokes/random` to constrain\nrandom selection.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Jokes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chucknorris.io/jokes/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search term."
+              }
+            ]
+          },
+          "docs": "Free-text search across the Chuck Norris joke corpus. Returns an array\nof jokes whose `value` matches the supplied query, along with the total\ncount.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
