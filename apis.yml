@@ -54,25 +54,25 @@ apis:
         url: json-structure/chucknorris-io-search-result-structure.json
       - type: JSONStructure
         url: json-structure/chucknorris-io-error-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/chucknorris-io-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-getRandomJoke-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-getRandomJoke-by-category-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-listCategories-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-searchJokes-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-getJokeById-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-joke-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-category-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-search-result-example.json
-      - type: Example
+      - type: Examples
         url: examples/chucknorris-io-error-example.json
       - type: Authentication
         url: https://api.chucknorris.io
@@ -102,12 +102,12 @@ common:
     url: rules/chucknorris-io-rules.yml
   - type: Vocabulary
     url: vocabulary/chucknorris-io-vocabulary.yml
-  - type: SDK
+  - type: SDKs
     url: https://github.com/chucknorris-io/client-nodejs
     data:
       - name: client-nodejs
         description: Official Node.js client library (GPL-3.0).
-  - type: SDK
+  - type: SDKs
     url: https://github.com/chucknorris-io/client-java
     data:
       - name: client-java
