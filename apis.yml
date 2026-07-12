@@ -85,6 +85,8 @@ apis:
           - name: Undocumented
             description: No rate limits are published by the provider.
 common:
+  - type: DomainSecurity
+    url: security/chucknorris-io-domain-security.yml
   - type: Website
     url: https://api.chucknorris.io
   - type: GitHubOrganization
