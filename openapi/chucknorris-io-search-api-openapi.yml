@@ -1,0 +1,165 @@
+openapi: 3.1.0
+info:
+  title: Chuck Norris Jokes Categories Search API
+  description: 'Free JSON REST API for hand-curated Chuck Norris facts maintained by
+
+    @matchilling. Supports random retrieval, category filtering, full-text
+
+    search, and direct lookup by joke identifier. No authentication is required
+
+    and there are no documented rate limits.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Mathias Schilling
+    url: https://github.com/chucknorris-io
+    email: cn-jokes-api@chucknorris.io
+  license:
+    name: GPL-3.0
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+  termsOfService: https://api.chucknorris.io/
+servers:
+- url: https://api.chucknorris.io
+  description: Production
+tags:
+- name: Search
+  description: Full-text search across the joke corpus.
+paths:
+  /jokes/search:
+    get:
+      operationId: searchJokes
+      summary: Search Jokes
+      description: 'Free-text search across the Chuck Norris joke corpus. Returns an array
+
+        of jokes whose `value` matches the supplied query, along with the total
+
+        count.
+
+        '
+      tags:
+      - Search
+      parameters:
+      - name: query
+        in: query
+        required: true
+        description: Free-text search term.
+        schema:
+          type: string
+          minLength: 3
+          maxLength: 120
+          example: dev
+      responses:
+        '200':
+          description: Matching jokes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+              examples:
+                search:
+                  $ref: '#/components/examples/SearchResults'
+        '400':
+          description: Missing or invalid query parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Joke:
+      type: object
+      description: A single Chuck Norris joke (fact).
+      required:
+      - categories
+      - created_at
+      - icon_url
+      - id
+      - updated_at
+      - url
+      - value
+      properties:
+        categories:
+          type: array
+          description: Categories this joke belongs to (empty when uncategorized).
+          items:
+            type: string
+        created_at:
+          type: string
+          description: Timestamp the joke was created (UTC, ISO-like format).
+          example: '2020-01-05 13:42:25.099703'
+        icon_url:
+          type: string
+          format: uri
+          description: URL to the Chuck Norris avatar image.
+          example: https://api.chucknorris.io/img/avatar/chuck-norris.png
+        id:
+          type: string
+          description: Stable identifier for the joke.
+          example: Yke6bi5xSdWvSq_dkCCGkA
+        updated_at:
+          type: string
+          description: Timestamp the joke was last updated.
+          example: '2020-01-05 13:42:25.099703'
+        url:
+          type: string
+          description: Canonical URL for the joke on chucknorris.io.
+        value:
+          type: string
+          description: The Chuck Norris fact text.
+          example: Chuck Norris can see around corners.
+    SearchResult:
+      type: object
+      description: Result envelope returned by the search endpoint.
+      required:
+      - total
+      - result
+      properties:
+        total:
+          type: integer
+          description: Total number of jokes matching the query.
+          example: 17
+        result:
+          type: array
+          description: Matching jokes.
+          items:
+            $ref: '#/components/schemas/Joke'
+    Error:
+      type: object
+      description: Error envelope returned by the API.
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          example: '2026-05-30T23:16:45.026Z'
+        status:
+          type: integer
+          example: 404
+        error:
+          type: string
+          example: Not Found
+        path:
+          type: string
+          example: /jokes/missing
+  examples:
+    SearchResults:
+      summary: Search response for "dev"
+      value:
+        total: 2
+        result:
+        - categories:
+          - dev
+          created_at: '2020-01-05 13:42:25.099703'
+          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+          id: Yke6bi5xSdWvSq_dkCCGkA
+          updated_at: '2020-01-05 13:42:25.099703'
+          url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
+          value: Chuck Norris's code compiles before he writes it.
+        - categories:
+          - dev
+          created_at: '2020-01-05 13:42:25.099703'
+          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+          id: 8w3Pj9z6Q9KqgKfQ8KkLPg
+          updated_at: '2020-01-05 13:42:25.099703'
+          url: https://api.chucknorris.io/jokes/8w3Pj9z6Q9KqgKfQ8KkLPg
+          value: Chuck Norris can divide by zero.

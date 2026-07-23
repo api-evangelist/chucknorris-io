@@ -1,0 +1,182 @@
+openapi: 3.1.0
+info:
+  title: Chuck Norris Categories Jokes API
+  description: 'Free JSON REST API for hand-curated Chuck Norris facts maintained by
+
+    @matchilling. Supports random retrieval, category filtering, full-text
+
+    search, and direct lookup by joke identifier. No authentication is required
+
+    and there are no documented rate limits.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Mathias Schilling
+    url: https://github.com/chucknorris-io
+    email: cn-jokes-api@chucknorris.io
+  license:
+    name: GPL-3.0
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+  termsOfService: https://api.chucknorris.io/
+servers:
+- url: https://api.chucknorris.io
+  description: Production
+tags:
+- name: Jokes
+  description: Chuck Norris jokes (facts) endpoints.
+paths:
+  /jokes/random:
+    get:
+      operationId: getRandomJoke
+      summary: Get Random Joke
+      description: 'Retrieve a single random Chuck Norris joke. Optionally constrain the
+
+        random selection to a specific category by passing the `category` query
+
+        parameter (must be one of the values returned by `/jokes/categories`).
+
+        '
+      tags:
+      - Jokes
+      parameters:
+      - name: category
+        in: query
+        required: false
+        description: Restrict the random selection to a single category.
+        schema:
+          type: string
+          example: dev
+      responses:
+        '200':
+          description: A random Chuck Norris joke.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+              examples:
+                random:
+                  $ref: '#/components/examples/JokeRandom'
+            text/plain:
+              schema:
+                type: string
+                description: Plain-text joke value (when Accept is text/plain).
+        '404':
+          description: Unknown category.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jokes/{id}:
+    get:
+      operationId: getJokeById
+      summary: Get Joke By Id
+      description: Retrieve a single joke by its 22-character identifier.
+      tags:
+      - Jokes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Joke identifier as returned by other endpoints.
+        schema:
+          type: string
+          example: Yke6bi5xSdWvSq_dkCCGkA
+      responses:
+        '200':
+          description: The requested joke.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+              examples:
+                byId:
+                  $ref: '#/components/examples/JokeById'
+        '404':
+          description: Joke not found for the supplied identifier.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Joke:
+      type: object
+      description: A single Chuck Norris joke (fact).
+      required:
+      - categories
+      - created_at
+      - icon_url
+      - id
+      - updated_at
+      - url
+      - value
+      properties:
+        categories:
+          type: array
+          description: Categories this joke belongs to (empty when uncategorized).
+          items:
+            type: string
+        created_at:
+          type: string
+          description: Timestamp the joke was created (UTC, ISO-like format).
+          example: '2020-01-05 13:42:25.099703'
+        icon_url:
+          type: string
+          format: uri
+          description: URL to the Chuck Norris avatar image.
+          example: https://api.chucknorris.io/img/avatar/chuck-norris.png
+        id:
+          type: string
+          description: Stable identifier for the joke.
+          example: Yke6bi5xSdWvSq_dkCCGkA
+        updated_at:
+          type: string
+          description: Timestamp the joke was last updated.
+          example: '2020-01-05 13:42:25.099703'
+        url:
+          type: string
+          description: Canonical URL for the joke on chucknorris.io.
+        value:
+          type: string
+          description: The Chuck Norris fact text.
+          example: Chuck Norris can see around corners.
+    Error:
+      type: object
+      description: Error envelope returned by the API.
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          example: '2026-05-30T23:16:45.026Z'
+        status:
+          type: integer
+          example: 404
+        error:
+          type: string
+          example: Not Found
+        path:
+          type: string
+          example: /jokes/missing
+  examples:
+    JokeRandom:
+      summary: Random joke response
+      value:
+        categories: []
+        created_at: '2020-01-05 13:42:25.099703'
+        icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+        id: GPGW82o1R8m3KhiKmKlpJA
+        updated_at: '2020-01-05 13:42:25.099703'
+        url: https://api.chucknorris.io/jokes/GPGW82o1R8m3KhiKmKlpJA
+        value: Chuck Norris can see around corners.
+    JokeById:
+      summary: Joke lookup by id
+      value:
+        categories:
+        - dev
+        created_at: '2020-01-05 13:42:25.099703'
+        icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+        id: Yke6bi5xSdWvSq_dkCCGkA
+        updated_at: '2020-01-05 13:42:25.099703'
+        url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
+        value: Chuck Norris's code compiles before he writes it.

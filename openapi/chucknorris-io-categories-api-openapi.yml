@@ -1,0 +1,83 @@
+openapi: 3.1.0
+info:
+  title: Chuck Norris Jokes Categories API
+  description: 'Free JSON REST API for hand-curated Chuck Norris facts maintained by
+
+    @matchilling. Supports random retrieval, category filtering, full-text
+
+    search, and direct lookup by joke identifier. No authentication is required
+
+    and there are no documented rate limits.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Mathias Schilling
+    url: https://github.com/chucknorris-io
+    email: cn-jokes-api@chucknorris.io
+  license:
+    name: GPL-3.0
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+  termsOfService: https://api.chucknorris.io/
+servers:
+- url: https://api.chucknorris.io
+  description: Production
+tags:
+- name: Categories
+  description: Joke category metadata.
+paths:
+  /jokes/categories:
+    get:
+      operationId: listCategories
+      summary: List Joke Categories
+      description: 'Return the full list of supported joke categories. Use any of these
+
+        values with the `category` parameter of `/jokes/random` to constrain
+
+        random selection.
+
+        '
+      tags:
+      - Categories
+      responses:
+        '200':
+          description: Array of category identifiers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryList'
+              examples:
+                categories:
+                  $ref: '#/components/examples/Categories'
+            text/plain:
+              schema:
+                type: string
+                description: Newline-delimited list of categories.
+components:
+  examples:
+    Categories:
+      summary: Category list response
+      value:
+      - animal
+      - career
+      - celebrity
+      - dev
+      - explicit
+      - fashion
+      - food
+      - history
+      - money
+      - movie
+      - music
+      - political
+      - religion
+      - science
+      - sport
+      - travel
+  schemas:
+    CategoryList:
+      type: array
+      description: List of available joke category identifiers.
+      items:
+        type: string
+        example: dev
