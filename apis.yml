@@ -6,6 +6,17 @@ description: >-
   open-source Spring Boot service (chuck-api), official Node.js and Java client SDKs, a Chrome extension, a Storybook
   addon, and Messenger / Alexa companion apps published under the chucknorris-io GitHub organization.
 url: https://api.chucknorris.io
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 image: https://api.chucknorris.io/img/avatar/chuck-norris.png
 specificationVersion: '0.20'
 created: '2026-05-28'
@@ -22,68 +33,162 @@ tags:
   - Open Source
   - Public APIs
 apis:
-  - name: Chuck Norris Jokes API
-    description: >-
-      JSON REST API exposing hand-curated Chuck Norris jokes. Endpoints cover random retrieval, category-constrained
-      random retrieval, listing of the 16 supported categories, free-text search, and lookup by joke id. No
-      authentication is required and no rate limits are documented.
-    humanURL: https://api.chucknorris.io
-    baseURL: https://api.chucknorris.io
-    tags:
-      - Entertainment
-      - Jokes
-      - Chuck Norris
-    properties:
-      - type: Documentation
-        url: https://api.chucknorris.io
-      - type: OpenAPI
-        url: openapi/chucknorris-io-openapi.yml
-      - type: JSONSchema
-        url: json-schema/chucknorris-io-joke-schema.json
-      - type: JSONSchema
-        url: json-schema/chucknorris-io-category-list-schema.json
-      - type: JSONSchema
-        url: json-schema/chucknorris-io-search-result-schema.json
-      - type: JSONSchema
-        url: json-schema/chucknorris-io-error-schema.json
-      - type: JSONStructure
-        url: json-structure/chucknorris-io-joke-structure.json
-      - type: JSONStructure
-        url: json-structure/chucknorris-io-category-list-structure.json
-      - type: JSONStructure
-        url: json-structure/chucknorris-io-search-result-structure.json
-      - type: JSONStructure
-        url: json-structure/chucknorris-io-error-structure.json
-      - type: JSONLD
-        url: json-ld/chucknorris-io-context.jsonld
-      - type: Examples
-        url: examples/chucknorris-io-getRandomJoke-example.json
-      - type: Examples
-        url: examples/chucknorris-io-getRandomJoke-by-category-example.json
-      - type: Examples
-        url: examples/chucknorris-io-listCategories-example.json
-      - type: Examples
-        url: examples/chucknorris-io-searchJokes-example.json
-      - type: Examples
-        url: examples/chucknorris-io-getJokeById-example.json
-      - type: Examples
-        url: examples/chucknorris-io-joke-example.json
-      - type: Examples
-        url: examples/chucknorris-io-category-list-example.json
-      - type: Examples
-        url: examples/chucknorris-io-search-result-example.json
-      - type: Examples
-        url: examples/chucknorris-io-error-example.json
-      - type: Authentication
-        url: https://api.chucknorris.io
-        data:
-          - name: None
-            description: The API is free and open; no API key or token is required.
-      - type: RateLimits
-        url: https://api.chucknorris.io
-        data:
-          - name: Undocumented
-            description: No rate limits are published by the provider.
+- aid: chucknorris-io:chucknorris-io-categories-api
+  name: chucknorris.io Categories API
+  description: Joke category metadata.
+  humanURL: https://api.chucknorris.io
+  baseURL: https://api.chucknorris.io
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/chucknorris-io-categories-api-openapi.yml
+  - type: Documentation
+    url: https://api.chucknorris.io
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-joke-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-category-list-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-error-schema.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-joke-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-category-list-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-search-result-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-error-structure.json
+  - type: JSONLD
+    url: json-ld/chucknorris-io-context.jsonld
+  - type: Examples
+    url: examples/chucknorris-io-getRandomJoke-example.json
+  - type: Examples
+    url: examples/chucknorris-io-getRandomJoke-by-category-example.json
+  - type: Examples
+    url: examples/chucknorris-io-listCategories-example.json
+  - type: Examples
+    url: examples/chucknorris-io-searchJokes-example.json
+  - type: Examples
+    url: examples/chucknorris-io-getJokeById-example.json
+  - type: Examples
+    url: examples/chucknorris-io-joke-example.json
+  - type: Examples
+    url: examples/chucknorris-io-category-list-example.json
+  - type: Examples
+    url: examples/chucknorris-io-search-result-example.json
+  - type: Examples
+    url: examples/chucknorris-io-error-example.json
+  - type: Authentication
+    url: https://api.chucknorris.io
+  - type: RateLimits
+    url: https://api.chucknorris.io
+- aid: chucknorris-io:chucknorris-io-jokes-api
+  name: chucknorris.io Jokes API
+  description: Chuck Norris jokes (facts) endpoints.
+  humanURL: https://api.chucknorris.io
+  baseURL: https://api.chucknorris.io
+  tags:
+  - Jokes
+  properties:
+  - type: OpenAPI
+    url: openapi/chucknorris-io-jokes-api-openapi.yml
+  - type: Documentation
+    url: https://api.chucknorris.io
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-joke-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-category-list-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-error-schema.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-joke-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-category-list-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-search-result-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-error-structure.json
+  - type: JSONLD
+    url: json-ld/chucknorris-io-context.jsonld
+  - type: Examples
+    url: examples/chucknorris-io-getRandomJoke-example.json
+  - type: Examples
+    url: examples/chucknorris-io-getRandomJoke-by-category-example.json
+  - type: Examples
+    url: examples/chucknorris-io-listCategories-example.json
+  - type: Examples
+    url: examples/chucknorris-io-searchJokes-example.json
+  - type: Examples
+    url: examples/chucknorris-io-getJokeById-example.json
+  - type: Examples
+    url: examples/chucknorris-io-joke-example.json
+  - type: Examples
+    url: examples/chucknorris-io-category-list-example.json
+  - type: Examples
+    url: examples/chucknorris-io-search-result-example.json
+  - type: Examples
+    url: examples/chucknorris-io-error-example.json
+  - type: Authentication
+    url: https://api.chucknorris.io
+  - type: RateLimits
+    url: https://api.chucknorris.io
+- aid: chucknorris-io:chucknorris-io-search-api
+  name: chucknorris.io Search API
+  description: Full-text search across the joke corpus.
+  humanURL: https://api.chucknorris.io
+  baseURL: https://api.chucknorris.io
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/chucknorris-io-search-api-openapi.yml
+  - type: Documentation
+    url: https://api.chucknorris.io
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-joke-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-category-list-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/chucknorris-io-error-schema.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-joke-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-category-list-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-search-result-structure.json
+  - type: JSONStructure
+    url: json-structure/chucknorris-io-error-structure.json
+  - type: JSONLD
+    url: json-ld/chucknorris-io-context.jsonld
+  - type: Examples
+    url: examples/chucknorris-io-getRandomJoke-example.json
+  - type: Examples
+    url: examples/chucknorris-io-getRandomJoke-by-category-example.json
+  - type: Examples
+    url: examples/chucknorris-io-listCategories-example.json
+  - type: Examples
+    url: examples/chucknorris-io-searchJokes-example.json
+  - type: Examples
+    url: examples/chucknorris-io-getJokeById-example.json
+  - type: Examples
+    url: examples/chucknorris-io-joke-example.json
+  - type: Examples
+    url: examples/chucknorris-io-category-list-example.json
+  - type: Examples
+    url: examples/chucknorris-io-search-result-example.json
+  - type: Examples
+    url: examples/chucknorris-io-error-example.json
+  - type: Authentication
+    url: https://api.chucknorris.io
+  - type: RateLimits
+    url: https://api.chucknorris.io
 common:
   - type: AgenticAccess
     url: agentic-access/chucknorris-io-agentic-access.yml
