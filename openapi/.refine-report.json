@@ -1,0 +1,18 @@
+{
+  "provider": "chucknorris-io",
+  "sources": [
+    "chucknorris-io-categories-api-openapi.yml",
+    "chucknorris-io-jokes-api-openapi.yml",
+    "chucknorris-io-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "chucknorris-io-categories-api-openapi.yml",
+    "chucknorris-io-jokes-api-openapi.yml",
+    "chucknorris-io-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
