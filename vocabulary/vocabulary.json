@@ -1,0 +1,64 @@
+{
+  "vocabulary": [
+    {
+      "term": "joke",
+      "definition": "A curated Chuck Norris fact or humorous statement returned by the API, identified by a unique ID and optionally associated with one or more categories.",
+      "type": "resource"
+    },
+    {
+      "term": "category",
+      "definition": "A thematic classification applied to jokes (e.g., dev, science, sport). Used to filter random joke requests.",
+      "type": "concept"
+    },
+    {
+      "term": "id",
+      "definition": "A globally unique identifier string assigned to each joke in the database.",
+      "type": "property"
+    },
+    {
+      "term": "value",
+      "definition": "The plain text content of a Chuck Norris joke.",
+      "type": "property"
+    },
+    {
+      "term": "icon_url",
+      "definition": "A permanent URL pointing to the Chuck Norris avatar PNG image, returned with every joke.",
+      "type": "property"
+    },
+    {
+      "term": "url",
+      "definition": "A permalink URL for a specific joke, constructed as https://api.chucknorris.io/jokes/{id}.",
+      "type": "property"
+    },
+    {
+      "term": "created_at",
+      "definition": "The timestamp indicating when a joke was first added to the database.",
+      "type": "property"
+    },
+    {
+      "term": "updated_at",
+      "definition": "The timestamp indicating when a joke was last modified in the database.",
+      "type": "property"
+    },
+    {
+      "term": "query",
+      "definition": "A free text search string (3-120 characters) used to search across the joke database.",
+      "type": "parameter"
+    },
+    {
+      "term": "name",
+      "definition": "An optional query parameter to replace 'Chuck Norris' with a custom name in the returned joke text.",
+      "type": "parameter"
+    },
+    {
+      "term": "total",
+      "definition": "The count of jokes returned in a search result set.",
+      "type": "property"
+    },
+    {
+      "term": "result",
+      "definition": "The array of joke objects contained in a search result.",
+      "type": "property"
+    }
+  ]
+}

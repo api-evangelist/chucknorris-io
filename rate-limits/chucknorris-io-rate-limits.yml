@@ -1,0 +1,12 @@
+name: Chuck Norris API Rate Limits
+description: Rate limiting policies for the Chuck Norris API.
+url: https://api.chucknorris.io
+rateLimits:
+  - name: Default
+    description: The Chuck Norris API does not publish explicit rate limits. As a free, open, and unauthenticated API, reasonable usage is expected. The service is hosted on AWS and maintained on a best-effort basis by the community. No throttling headers or documented limits have been published.
+    limit: null
+    period: null
+    notes: >
+      No official rate limits are documented. Users should apply reasonable
+      request pacing and avoid abusive burst traffic to help keep the service
+      free for everyone. Contact m@matchilling.com if you plan high-volume usage.

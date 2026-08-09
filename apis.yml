@@ -1,10 +1,10 @@
 aid: chucknorris-io
 name: chucknorris.io
-description: >-
-  Free JSON REST API for hand-curated Chuck Norris jokes (facts) maintained by @matchilling. Supports random retrieval,
-  category filtering, full-text search, and direct lookup by joke identifier. Hosted at api.chucknorris.io with an
-  open-source Spring Boot service (chuck-api), official Node.js and Java client SDKs, a Chrome extension, a Storybook
-  addon, and Messenger / Alexa companion apps published under the chucknorris-io GitHub organization.
+description: Free JSON REST API for hand-curated Chuck Norris jokes (facts) maintained by @matchilling.
+  Supports random retrieval, category filtering, full-text search, and direct lookup by joke identifier.
+  Hosted at api.chucknorris.io with an open-source Spring Boot service (chuck-api), official Node.js and
+  Java client SDKs, a Chrome extension, a Storybook addon, and Messenger / Alexa companion apps published
+  under the chucknorris-io GitHub organization.
 url: https://api.chucknorris.io
 accessModel:
   pricing: unknown
@@ -20,18 +20,18 @@ accessModel:
 image: https://api.chucknorris.io/img/avatar/chuck-norris.png
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-30'
+modified: '2026-08-08'
 x-source: public-apis/public-apis
 x-category: Entertainment
 x-type: opensource
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
-  - Entertainment
-  - Jokes
-  - Chuck Norris
-  - Open Source
-  - Public APIs
+- Entertainment
+- Jokes
+- Chuck Norris
+- Open Source
+- Public APIs
 apis:
 - aid: chucknorris-io:chucknorris-io-categories-api
   name: chucknorris.io Categories API
@@ -190,81 +190,102 @@ apis:
   - type: RateLimits
     url: https://api.chucknorris.io
 common:
-  - type: AgenticAccess
-    url: agentic-access/chucknorris-io-agentic-access.yml
-  - type: DomainSecurity
-    url: security/chucknorris-io-domain-security.yml
-  - type: Website
-    url: https://api.chucknorris.io
-  - type: GitHubOrganization
-    url: https://github.com/chucknorris-io
-  - type: GitHubRepository
-    url: https://github.com/chucknorris-io/chuck-api
-  - type: License
-    url: https://github.com/chucknorris-io/chuck-api/blob/master/LICENSE
-    data:
-      - name: GPL-3.0
-        description: Service source (chuck-api) is licensed GPL-3.0.
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
-  - type: SpectralRules
-    url: rules/chucknorris-io-rules.yml
-  - type: Vocabulary
-    url: vocabulary/chucknorris-io-vocabulary.yml
-  - type: SDKs
-    url: https://github.com/chucknorris-io/client-nodejs
-    data:
-      - name: client-nodejs
-        description: Official Node.js client library (GPL-3.0).
-  - type: SDKs
-    url: https://github.com/chucknorris-io/client-java
-    data:
-      - name: client-java
-        description: Official Java client library (Apache-2.0).
-  - type: Integrations
-    data:
-      - name: Slack
-        description: Slack slash command integration referenced in the public docs.
-      - name: Facebook Messenger
-        description: Companion Messenger bot (chucknorris-io/app-facebook-messenger).
-      - name: Alexa
-        description: Companion Alexa skill (chucknorris-io/app-alexa-skill).
-      - name: Google Chrome
-        description: Official Chrome extension surfacing facts in the browser.
-      - name: Storybook
-        description: Storybook addon injecting Chuck Norris facts into dev workflows.
-  - type: Features
-    data:
-      - name: Random Joke
-        description: GET /jokes/random returns a single random Chuck Norris fact.
-      - name: Random Joke By Category
-        description: GET /jokes/random?category={category} constrains random selection.
-      - name: List Categories
-        description: GET /jokes/categories returns the 16 supported category identifiers.
-      - name: Free-Text Search
-        description: GET /jokes/search?query={query} returns matching jokes with a total count.
-      - name: Lookup By Id
-        description: GET /jokes/{id} retrieves a single joke by its identifier.
-      - name: Plain-Text Variant
-        description: All endpoints honor Accept text/plain for shell-friendly output.
-  - type: UseCases
-    data:
-      - name: Demo Data Source
-        description: Tutorial-friendly free public API for learning HTTP clients, SDKs, and AI tool patterns.
-      - name: Chat & Bot Surfaces
-        description: Slack, Messenger, and Alexa surfaces inject random facts on demand.
-      - name: Developer Toy
-        description: Storybook addon and Chrome extension use the API to entertain developers.
-      - name: Load & Reliability Testing
-        description: Lightweight, no-auth endpoints are useful targets for HTTP client smoke tests.
-  - type: Tools
-    data:
-      - name: Postman Collection
-        description: Maintained by the chucknorris-io org at chuck-infra-tools/api_postman_collection.json.
-      - name: Third-Party MCP Servers
-        description: >-
-          Community MCP servers wrap api.chucknorris.io (e.g., thomasma/chuckjokes-mcpserver,
-          BACH-AI-Tools/chuck_norris). No first-party MCP server.
+- type: AgenticAccess
+  url: agentic-access/chucknorris-io-agentic-access.yml
+- type: DomainSecurity
+  url: security/chucknorris-io-domain-security.yml
+- type: Website
+  url: https://api.chucknorris.io
+- type: GitHubOrganization
+  url: https://github.com/chucknorris-io
+- type: GitHubRepository
+  url: https://github.com/chucknorris-io/chuck-api
+- type: License
+  url: https://github.com/chucknorris-io/chuck-api/blob/master/LICENSE
+  data:
+  - name: GPL-3.0
+    description: Service source (chuck-api) is licensed GPL-3.0.
+- type: PublicAPIsListing
+  url: https://github.com/public-apis/public-apis
+- type: SpectralRules
+  url: rules/chucknorris-io-rules.yml
+- type: Vocabulary
+  url: vocabulary/chucknorris-io-vocabulary.yml
+- type: SDKs
+  url: https://github.com/chucknorris-io/client-nodejs
+  data:
+  - name: client-nodejs
+    description: Official Node.js client library (GPL-3.0).
+- type: SDKs
+  url: https://github.com/chucknorris-io/client-java
+  data:
+  - name: client-java
+    description: Official Java client library (Apache-2.0).
+- type: Integrations
+  data:
+  - name: Slack
+    description: Slack slash command integration referenced in the public docs.
+  - name: Facebook Messenger
+    description: Companion Messenger bot (chucknorris-io/app-facebook-messenger).
+  - name: Alexa
+    description: Companion Alexa skill (chucknorris-io/app-alexa-skill).
+  - name: Google Chrome
+    description: Official Chrome extension surfacing facts in the browser.
+  - name: Storybook
+    description: Storybook addon injecting Chuck Norris facts into dev workflows.
+- type: Features
+  data:
+  - name: Random Joke
+    description: GET /jokes/random returns a single random Chuck Norris fact.
+  - name: Random Joke By Category
+    description: GET /jokes/random?category={category} constrains random selection.
+  - name: List Categories
+    description: GET /jokes/categories returns the 16 supported category identifiers.
+  - name: Free-Text Search
+    description: GET /jokes/search?query={query} returns matching jokes with a total count.
+  - name: Lookup By Id
+    description: GET /jokes/{id} retrieves a single joke by its identifier.
+  - name: Plain-Text Variant
+    description: All endpoints honor Accept text/plain for shell-friendly output.
+- type: UseCases
+  data:
+  - name: Demo Data Source
+    description: Tutorial-friendly free public API for learning HTTP clients, SDKs, and AI tool patterns.
+  - name: Chat & Bot Surfaces
+    description: Slack, Messenger, and Alexa surfaces inject random facts on demand.
+  - name: Developer Toy
+    description: Storybook addon and Chrome extension use the API to entertain developers.
+  - name: Load & Reliability Testing
+    description: Lightweight, no-auth endpoints are useful targets for HTTP client smoke tests.
+- type: Tools
+  data:
+  - name: Postman Collection
+    description: Maintained by the chucknorris-io org at chuck-infra-tools/api_postman_collection.json.
+  - name: Third-Party MCP Servers
+    description: Community MCP servers wrap api.chucknorris.io (e.g., thomasma/chuckjokes-mcpserver, BACH-AI-Tools/chuck_norris).
+      No first-party MCP server.
+- type: Documentation
+  url: https://api.chucknorris.io
+- type: GitHubOrg
+  url: https://github.com/chucknorris-io
+- type: LinkedIn
+  url: https://www.linkedin.com/company/chucknorris-io
+- type: Blog
+  url: https://api.chucknorris.io
+- type: Pricing
+  url: https://api.chucknorris.io
+- type: StatusPage
+  url: https://status.chucknorris.io
+- type: X
+  url: https://twitter.com/MatChilling
+- type: Plans
+  url: plans/chucknorris-io-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/chucknorris-io-rate-limits.yml
+- type: FinOps
+  url: finops/chucknorris-io-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-merged-from:
+- chuck-norris

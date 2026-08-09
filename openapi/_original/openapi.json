@@ -1,0 +1,360 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Chuck Norris API",
+    "description": "Free REST API providing random Chuck Norris jokes, categories, and the ability to search the joke database with no authentication required.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://api.chucknorris.io"
+    },
+    "license": {
+      "name": "Free to use",
+      "url": "https://api.chucknorris.io"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.chucknorris.io",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "jokes",
+      "description": "Chuck Norris joke operations"
+    }
+  ],
+  "paths": {
+    "/jokes/random": {
+      "get": {
+        "tags": ["jokes"],
+        "summary": "Get a random joke",
+        "description": "Returns a random Chuck Norris joke. Optionally filter by category or personalize by substituting a custom name.",
+        "operationId": "getRandomJoke",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "One or more comma-separated categories to filter the random joke",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "science"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A custom name to substitute in the joke text instead of 'Chuck Norris'",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "John Doe"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A random Chuck Norris joke",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Joke"
+                },
+                "example": {
+                  "categories": [],
+                  "created_at": "2020-01-05 13:42:28.143137",
+                  "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+                  "id": "XsZF_OwkSK2dXb7Cuzubmg",
+                  "updated_at": "2020-01-05 13:42:28.143137",
+                  "url": "https://api.chucknorris.io/jokes/XsZF_OwkSK2dXb7Cuzubmg",
+                  "value": "Chuck Norris can divide by zero."
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Chuck Norris can divide by zero."
+              }
+            }
+          },
+          "404": {
+            "description": "No joke found for the given category or name",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jokes/categories": {
+      "get": {
+        "tags": ["jokes"],
+        "summary": "List joke categories",
+        "description": "Returns an array of all available joke categories.",
+        "operationId": "getCategories",
+        "responses": {
+          "200": {
+            "description": "Array of category name strings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "example": [
+                  "animal",
+                  "career",
+                  "celebrity",
+                  "dev",
+                  "explicit",
+                  "fashion",
+                  "food",
+                  "history",
+                  "money",
+                  "movie",
+                  "music",
+                  "political",
+                  "religion",
+                  "science",
+                  "sport",
+                  "travel"
+                ]
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "animal\ncareer\ncelebrity\ndev\nexplicit\n"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jokes/{id}": {
+      "get": {
+        "tags": ["jokes"],
+        "summary": "Get joke by ID",
+        "description": "Returns a specific Chuck Norris joke by its unique identifier.",
+        "operationId": "getJokeById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique joke identifier",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "XsZF_OwkSK2dXb7Cuzubmg"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested joke",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Joke"
+                },
+                "example": {
+                  "categories": [],
+                  "created_at": "2020-01-05 13:42:28.143137",
+                  "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+                  "id": "XsZF_OwkSK2dXb7Cuzubmg",
+                  "updated_at": "2020-01-05 13:42:28.143137",
+                  "url": "https://api.chucknorris.io/jokes/XsZF_OwkSK2dXb7Cuzubmg",
+                  "value": "Chuck Norris can divide by zero."
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Chuck Norris can divide by zero."
+              }
+            }
+          },
+          "404": {
+            "description": "Joke not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jokes/search": {
+      "get": {
+        "tags": ["jokes"],
+        "summary": "Search jokes",
+        "description": "Performs a free text search across the curated joke database. Query must be between 3 and 120 characters.",
+        "operationId": "searchJokes",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "The search query string (3-120 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 120,
+              "example": "computer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results containing matching jokes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JokeSearchResult"
+                },
+                "example": {
+                  "total": 1,
+                  "result": [
+                    {
+                      "categories": ["dev"],
+                      "created_at": "2020-01-05 13:42:28.143137",
+                      "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+                      "id": "abc123",
+                      "updated_at": "2020-01-05 13:42:28.143137",
+                      "url": "https://api.chucknorris.io/jokes/abc123",
+                      "value": "Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris."
+                    }
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris.\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query (too short or too long)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Joke": {
+        "type": "object",
+        "description": "A Chuck Norris joke",
+        "required": ["categories", "created_at", "icon_url", "id", "updated_at", "url", "value"],
+        "properties": {
+          "categories": {
+            "type": "array",
+            "description": "List of categories this joke belongs to",
+            "items": {
+              "type": "string"
+            },
+            "example": ["dev"]
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the joke was created",
+            "example": "2020-01-05 13:42:28.143137"
+          },
+          "icon_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the Chuck Norris avatar image",
+            "example": "https://api.chucknorris.io/img/avatar/chuck-norris.png"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the joke",
+            "example": "XsZF_OwkSK2dXb7Cuzubmg"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the joke was last updated",
+            "example": "2020-01-05 13:42:28.143137"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Permalink URL to this joke",
+            "example": "https://api.chucknorris.io/jokes/XsZF_OwkSK2dXb7Cuzubmg"
+          },
+          "value": {
+            "type": "string",
+            "description": "The joke text",
+            "example": "Chuck Norris can divide by zero."
+          }
+        }
+      },
+      "JokeSearchResult": {
+        "type": "object",
+        "description": "Result set from a joke search",
+        "required": ["total", "result"],
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "Total number of jokes matching the search query",
+            "example": 1
+          },
+          "result": {
+            "type": "array",
+            "description": "Array of matching jokes",
+            "items": {
+              "$ref": "#/components/schemas/Joke"
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "API error response",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Timestamp of the error"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error type"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error message"
+          },
+          "path": {
+            "type": "string",
+            "description": "Request path that triggered the error"
+          }
+        }
+      }
+    }
+  }
+}

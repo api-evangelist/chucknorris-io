@@ -1,0 +1,23 @@
+{
+  "total": 2,
+  "result": [
+    {
+      "categories": ["dev"],
+      "created_at": "2020-01-05 13:42:28.143137",
+      "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+      "id": "abc123XsZF",
+      "updated_at": "2020-01-05 13:42:28.143137",
+      "url": "https://api.chucknorris.io/jokes/abc123XsZF",
+      "value": "Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris."
+    },
+    {
+      "categories": ["dev"],
+      "created_at": "2020-01-05 13:42:28.143137",
+      "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+      "id": "def456YtAG",
+      "updated_at": "2020-01-05 13:42:28.143137",
+      "url": "https://api.chucknorris.io/jokes/def456YtAG",
+      "value": "Chuck Norris can write infinite recursion in C without a stack overflow."
+    }
+  ]
+}

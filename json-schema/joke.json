@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.chucknorris.io/schema/joke.json",
+  "title": "Joke",
+  "description": "A Chuck Norris joke returned by the Chuck Norris API",
+  "type": "object",
+  "required": ["categories", "created_at", "icon_url", "id", "updated_at", "url", "value"],
+  "properties": {
+    "categories": {
+      "type": "array",
+      "description": "List of categories this joke belongs to",
+      "items": {
+        "type": "string"
+      },
+      "examples": [["dev"], ["science"], []]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp when the joke was created in the database",
+      "examples": ["2020-01-05 13:42:28.143137"]
+    },
+    "icon_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the Chuck Norris avatar icon image",
+      "examples": ["https://api.chucknorris.io/img/avatar/chuck-norris.png"]
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the joke",
+      "examples": ["XsZF_OwkSK2dXb7Cuzubmg"]
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Timestamp when the joke was last updated",
+      "examples": ["2020-01-05 13:42:28.143137"]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Permalink URL to this specific joke",
+      "examples": ["https://api.chucknorris.io/jokes/XsZF_OwkSK2dXb7Cuzubmg"]
+    },
+    "value": {
+      "type": "string",
+      "description": "The joke text content",
+      "examples": ["Chuck Norris can divide by zero."]
+    }
+  },
+  "additionalProperties": false
+}

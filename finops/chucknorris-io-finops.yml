@@ -1,0 +1,19 @@
+name: Chuck Norris API FinOps
+description: Financial operations guidance for the Chuck Norris API.
+url: https://api.chucknorris.io
+finops:
+  - name: Free Tier Cost Management
+    description: >
+      The Chuck Norris API is entirely free with no metered usage, no billing,
+      and no cost tiers. There are no API keys to manage and no spending caps
+      to configure. Financial operations overhead is zero. The service is
+      sustained by sponsorship from Jugendstil.io, so no budget planning is
+      required on the consumer side.
+    cost: 0
+    currency: USD
+    recommendations:
+      - No cost tracking required; the API has no charges.
+      - Monitor usage internally to avoid unintentional high-volume traffic that
+        could impact the shared free service.
+      - Consider acknowledging the service sponsorship (Jugendstil.io) in
+        applications that rely heavily on the API.

@@ -1,0 +1,19 @@
+name: Chuck Norris API Plans & Pricing
+description: Pricing plans and tiers for the Chuck Norris API.
+url: https://api.chucknorris.io
+plans:
+  - name: Free
+    description: The Chuck Norris API is completely free to use and always will be. No sign-up, no API key, and no payment required. The service is community-maintained and supported by Jugendstil.io sponsorship.
+    url: https://api.chucknorris.io
+    price: 0
+    currency: USD
+    unit: month
+    features:
+      - Random Chuck Norris joke retrieval
+      - Category-filtered jokes
+      - Free text search across the joke database
+      - JSON response format
+      - Slack integration support
+      - Facebook Messenger integration support
+      - No authentication required
+      - No API key required

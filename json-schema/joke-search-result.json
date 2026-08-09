@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.chucknorris.io/schema/joke-search-result.json",
+  "title": "JokeSearchResult",
+  "description": "The result set returned by the Chuck Norris API joke search endpoint",
+  "type": "object",
+  "required": ["total", "result"],
+  "properties": {
+    "total": {
+      "type": "integer",
+      "description": "Total number of jokes that matched the search query",
+      "minimum": 0,
+      "examples": [3]
+    },
+    "result": {
+      "type": "array",
+      "description": "Array of jokes matching the search query",
+      "items": {
+        "$ref": "joke.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

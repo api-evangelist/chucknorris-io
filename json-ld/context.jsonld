@@ -1,0 +1,43 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "chuck": "https://api.chucknorris.io/vocab#",
+    "id": "@id",
+    "type": "@type",
+    "Joke": "chuck:Joke",
+    "JokeSearchResult": "chuck:JokeSearchResult",
+    "value": {
+      "@id": "schema:text",
+      "@type": "schema:Text"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "icon_url": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "schema:Text"
+    },
+    "updated_at": {
+      "@id": "schema:dateModified",
+      "@type": "schema:Text"
+    },
+    "categories": {
+      "@id": "schema:keywords",
+      "@container": "@set"
+    },
+    "total": {
+      "@id": "schema:numberOfItems",
+      "@type": "schema:Integer"
+    },
+    "result": {
+      "@id": "schema:itemListElement",
+      "@container": "@list"
+    }
+  }
+}

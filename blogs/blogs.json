@@ -1,0 +1,12 @@
+{
+  "repo": "chuck-norris",
+  "feeds": [
+    {
+      "source": "https://www.linkedin.com/company/chucknorris-io",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-06T14:08:46Z",
+  "agent_pulled": "2026-07-04"
+}
