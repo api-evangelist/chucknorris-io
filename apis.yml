@@ -190,6 +190,8 @@ apis:
   - type: RateLimits
     url: https://api.chucknorris.io
 common:
+- type: IssueTracker
+  url: https://github.com/chucknorris-io/chuck-api/issues
 - type: AgenticAccess
   url: agentic-access/chucknorris-io-agentic-access.yml
 - type: DomainSecurity
