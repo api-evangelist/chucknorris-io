@@ -1,0 +1,157 @@
+{
+  "item": [
+    {
+      "id": "9ac49039-f474-4c06-9e71-816779122da8",
+      "name": "Search",
+      "description": {
+        "content": "Full-text search across the joke corpus.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3782838a-57a3-4f92-ab24-9ccb9ac1c454",
+          "name": "Search Jokes",
+          "request": {
+            "name": "Search Jokes",
+            "description": {
+              "content": "Free-text search across the Chuck Norris joke corpus. Returns an array\nof jokes whose `value` matches the supplied query, along with the total\ncount.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jokes",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Free-text search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a4d9e86-9408-406c-89ed-f9c5154b4ba5",
+              "name": "Matching jokes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jokes",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "dev"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 2,\n  \"result\": [\n    {\n      \"categories\": [\n        \"dev\"\n      ],\n      \"created_at\": \"2020-01-05 13:42:25.099703\",\n      \"icon_url\": \"https://api.chucknorris.io/img/avatar/chuck-norris.png\",\n      \"id\": \"Yke6bi5xSdWvSq_dkCCGkA\",\n      \"updated_at\": \"2020-01-05 13:42:25.099703\",\n      \"url\": \"https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA\",\n      \"value\": \"Chuck Norris's code compiles before he writes it.\"\n    },\n    {\n      \"categories\": [\n        \"dev\"\n      ],\n      \"created_at\": \"2020-01-05 13:42:25.099703\",\n      \"icon_url\": \"https://api.chucknorris.io/img/avatar/chuck-norris.png\",\n      \"id\": \"8w3Pj9z6Q9KqgKfQ8KkLPg\",\n      \"updated_at\": \"2020-01-05 13:42:25.099703\",\n      \"url\": \"https://api.chucknorris.io/jokes/8w3Pj9z6Q9KqgKfQ8KkLPg\",\n      \"value\": \"Chuck Norris can divide by zero.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7650f31a-61be-4977-9dbe-2806e7e9e150",
+              "name": "Missing or invalid query parameter.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jokes",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "dev"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-05-30T23:16:45.026Z\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/jokes/missing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chucknorris.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e428e3bd-0737-482a-b6d0-e729fa2e44f8",
+    "name": "Chuck Norris Jokes Categories Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free JSON REST API for hand-curated Chuck Norris facts maintained by\n@matchilling. Supports random retrieval, category filtering, full-text\nsearch, and direct lookup by joke identifier. No authentication is required\nand there are no documented rate limits.\n\n\nContact Support:\n Name: Mathias Schilling\n Email: cn-jokes-api@chucknorris.io",
+      "type": "text/plain"
+    }
+  }
+}

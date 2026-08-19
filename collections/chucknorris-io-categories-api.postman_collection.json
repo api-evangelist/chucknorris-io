@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "a112c11f-5e4f-4b18-8125-631e9b3704f6",
+      "name": "Categories",
+      "description": {
+        "content": "Joke category metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a57c32f-e3b8-4eb3-a997-9ff424c00c91",
+          "name": "List Joke Categories",
+          "request": {
+            "name": "List Joke Categories",
+            "description": {
+              "content": "Return the full list of supported joke categories. Use any of these\nvalues with the `category` parameter of `/jokes/random` to constrain\nrandom selection.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jokes",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5855b35d-de4f-480b-a712-4764ee5226c9",
+              "name": "Array of category identifiers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jokes",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"animal\",\n  \"career\",\n  \"celebrity\",\n  \"dev\",\n  \"explicit\",\n  \"fashion\",\n  \"food\",\n  \"history\",\n  \"money\",\n  \"movie\",\n  \"music\",\n  \"political\",\n  \"religion\",\n  \"science\",\n  \"sport\",\n  \"travel\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chucknorris.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ae753ac3-540e-45a4-bc01-d85f37b53336",
+    "name": "Chuck Norris Jokes Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free JSON REST API for hand-curated Chuck Norris facts maintained by\n@matchilling. Supports random retrieval, category filtering, full-text\nsearch, and direct lookup by joke identifier. No authentication is required\nand there are no documented rate limits.\n\n\nContact Support:\n Name: Mathias Schilling\n Email: cn-jokes-api@chucknorris.io",
+      "type": "text/plain"
+    }
+  }
+}

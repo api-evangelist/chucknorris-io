@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Chuck Norris Jokes Categories Search API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Jokes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chucknorris.io/jokes/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search term."
+              }
+            ]
+          },
+          "docs": "Free-text search across the Chuck Norris joke corpus. Returns an array\nof jokes whose `value` matches the supplied query, along with the total\ncount.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
