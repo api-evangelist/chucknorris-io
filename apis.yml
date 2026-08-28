@@ -6,6 +6,19 @@ description: Free JSON REST API for hand-curated Chuck Norris jokes (facts) main
   Java client SDKs, a Chrome extension, a Storybook addon, and Messenger / Alexa companion apps published
   under the chucknorris-io GitHub organization.
 url: https://api.chucknorris.io
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
