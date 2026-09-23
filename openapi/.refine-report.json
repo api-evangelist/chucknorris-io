@@ -1,9 +1,7 @@
 {
   "provider": "chucknorris-io",
   "sources": [
-    "chucknorris-io-categories-api-openapi.yml",
-    "chucknorris-io-jokes-api-openapi.yml",
-    "chucknorris-io-search-api-openapi.yml"
+    "_original/chucknorris-io-openapi.yml"
   ],
   "outputs": [
     "chucknorris-io-categories-api-openapi.yml",
@@ -13,6 +11,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "chucknorris-io-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/openapi.json: archived document superseded by a larger archived document",
+    "chucknorris-io-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chucknorris-io-jokes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "chucknorris-io-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

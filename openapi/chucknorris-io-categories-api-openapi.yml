@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Chuck Norris Jokes Categories API
   description: 'Free JSON REST API for hand-curated Chuck Norris facts maintained by
@@ -7,9 +7,7 @@ info:
 
     search, and direct lookup by joke identifier. No authentication is required
 
-    and there are no documented rate limits.
-
-    '
+    and there are no documented rate limits.'
   version: 1.0.0
   contact:
     name: Mathias Schilling
@@ -34,9 +32,7 @@ paths:
 
         values with the `category` parameter of `/jokes/random` to constrain
 
-        random selection.
-
-        '
+        random selection.'
       tags:
       - Categories
       responses:
