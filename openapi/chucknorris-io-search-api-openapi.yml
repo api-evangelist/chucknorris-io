@@ -62,7 +62,46 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
+  examples:
+    SearchResults:
+      summary: Search response for "dev"
+      value:
+        total: 2
+        result:
+        - categories:
+          - dev
+          created_at: '2020-01-05 13:42:25.099703'
+          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+          id: Yke6bi5xSdWvSq_dkCCGkA
+          updated_at: '2020-01-05 13:42:25.099703'
+          url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
+          value: Chuck Norris's code compiles before he writes it.
+        - categories:
+          - dev
+          created_at: '2020-01-05 13:42:25.099703'
+          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+          id: 8w3Pj9z6Q9KqgKfQ8KkLPg
+          updated_at: '2020-01-05 13:42:25.099703'
+          url: https://api.chucknorris.io/jokes/8w3Pj9z6Q9KqgKfQ8KkLPg
+          value: Chuck Norris can divide by zero.
   schemas:
+    Error:
+      type: object
+      description: Error envelope returned by the API.
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          example: '2026-05-30T23:16:45.026Z'
+        status:
+          type: integer
+          example: 404
+        error:
+          type: string
+          example: Not Found
+        path:
+          type: string
+          example: /jokes/missing
     Joke:
       type: object
       description: A single Chuck Norris joke (fact).
@@ -120,42 +159,3 @@ components:
           description: Matching jokes.
           items:
             $ref: '#/components/schemas/Joke'
-    Error:
-      type: object
-      description: Error envelope returned by the API.
-      properties:
-        timestamp:
-          type: string
-          format: date-time
-          example: '2026-05-30T23:16:45.026Z'
-        status:
-          type: integer
-          example: 404
-        error:
-          type: string
-          example: Not Found
-        path:
-          type: string
-          example: /jokes/missing
-  examples:
-    SearchResults:
-      summary: Search response for "dev"
-      value:
-        total: 2
-        result:
-        - categories:
-          - dev
-          created_at: '2020-01-05 13:42:25.099703'
-          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
-          id: Yke6bi5xSdWvSq_dkCCGkA
-          updated_at: '2020-01-05 13:42:25.099703'
-          url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
-          value: Chuck Norris's code compiles before he writes it.
-        - categories:
-          - dev
-          created_at: '2020-01-05 13:42:25.099703'
-          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
-          id: 8w3Pj9z6Q9KqgKfQ8KkLPg
-          updated_at: '2020-01-05 13:42:25.099703'
-          url: https://api.chucknorris.io/jokes/8w3Pj9z6Q9KqgKfQ8KkLPg
-          value: Chuck Norris can divide by zero.

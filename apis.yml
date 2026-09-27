@@ -7,17 +7,20 @@ description: Free JSON REST API for hand-curated Chuck Norris jokes (facts) main
   under the chucknorris-io GitHub organization.
 url: https://api.chucknorris.io
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - chucknorris-io/chuck-api
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -43,7 +46,7 @@ tags:
 - Entertainment
 - Jokes
 - Chuck Norris
-- Open-Source
+- Open Source
 - Public APIs
 tags_raw:
 - Entertainment
@@ -51,12 +54,12 @@ tags_raw:
 - Chuck Norris
 - Open Source
 - Public APIs
+- Open-Source
 apis:
 - aid: chucknorris-io:chucknorris-io-categories-api
   name: chucknorris.io Categories API
   description: Joke category metadata.
   humanURL: https://api.chucknorris.io
-  baseURL: https://api.chucknorris.io
   tags:
   - Categories
   properties:
@@ -108,7 +111,6 @@ apis:
   name: chucknorris.io Jokes API
   description: Chuck Norris jokes (facts) endpoints.
   humanURL: https://api.chucknorris.io
-  baseURL: https://api.chucknorris.io
   tags:
   - Jokes
   properties:
@@ -160,7 +162,6 @@ apis:
   name: chucknorris.io Search API
   description: Full-text search across the joke corpus.
   humanURL: https://api.chucknorris.io
-  baseURL: https://api.chucknorris.io
   tags:
   - Search
   properties:
