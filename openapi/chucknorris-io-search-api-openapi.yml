@@ -62,46 +62,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
-  examples:
-    SearchResults:
-      summary: Search response for "dev"
-      value:
-        total: 2
-        result:
-        - categories:
-          - dev
-          created_at: '2020-01-05 13:42:25.099703'
-          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
-          id: Yke6bi5xSdWvSq_dkCCGkA
-          updated_at: '2020-01-05 13:42:25.099703'
-          url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
-          value: Chuck Norris's code compiles before he writes it.
-        - categories:
-          - dev
-          created_at: '2020-01-05 13:42:25.099703'
-          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
-          id: 8w3Pj9z6Q9KqgKfQ8KkLPg
-          updated_at: '2020-01-05 13:42:25.099703'
-          url: https://api.chucknorris.io/jokes/8w3Pj9z6Q9KqgKfQ8KkLPg
-          value: Chuck Norris can divide by zero.
   schemas:
-    Error:
+    SearchResult:
       type: object
-      description: Error envelope returned by the API.
+      description: Result envelope returned by the search endpoint.
+      required:
+      - total
+      - result
       properties:
-        timestamp:
-          type: string
-          format: date-time
-          example: '2026-05-30T23:16:45.026Z'
-        status:
+        total:
           type: integer
-          example: 404
-        error:
-          type: string
-          example: Not Found
-        path:
-          type: string
-          example: /jokes/missing
+          description: Total number of jokes matching the query.
+          example: 17
+        result:
+          type: array
+          description: Matching jokes.
+          items:
+            $ref: '#/components/schemas/Joke'
     Joke:
       type: object
       description: A single Chuck Norris joke (fact).
@@ -143,19 +120,42 @@ components:
           type: string
           description: The Chuck Norris fact text.
           example: Chuck Norris can see around corners.
-    SearchResult:
+    Error:
       type: object
-      description: Result envelope returned by the search endpoint.
-      required:
-      - total
-      - result
+      description: Error envelope returned by the API.
       properties:
-        total:
+        timestamp:
+          type: string
+          format: date-time
+          example: '2026-05-30T23:16:45.026Z'
+        status:
           type: integer
-          description: Total number of jokes matching the query.
-          example: 17
+          example: 404
+        error:
+          type: string
+          example: Not Found
+        path:
+          type: string
+          example: /jokes/missing
+  examples:
+    SearchResults:
+      summary: Search response for "dev"
+      value:
+        total: 2
         result:
-          type: array
-          description: Matching jokes.
-          items:
-            $ref: '#/components/schemas/Joke'
+        - categories:
+          - dev
+          created_at: '2020-01-05 13:42:25.099703'
+          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+          id: Yke6bi5xSdWvSq_dkCCGkA
+          updated_at: '2020-01-05 13:42:25.099703'
+          url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
+          value: Chuck Norris's code compiles before he writes it.
+        - categories:
+          - dev
+          created_at: '2020-01-05 13:42:25.099703'
+          icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+          id: 8w3Pj9z6Q9KqgKfQ8KkLPg
+          updated_at: '2020-01-05 13:42:25.099703'
+          url: https://api.chucknorris.io/jokes/8w3Pj9z6Q9KqgKfQ8KkLPg
+          value: Chuck Norris can divide by zero.

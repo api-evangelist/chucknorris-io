@@ -50,13 +50,6 @@ paths:
                 type: string
                 description: Newline-delimited list of categories.
 components:
-  schemas:
-    CategoryList:
-      type: array
-      description: List of available joke category identifiers.
-      items:
-        type: string
-        example: dev
   examples:
     Categories:
       summary: Category list response
@@ -77,3 +70,10 @@ components:
       - science
       - sport
       - travel
+  schemas:
+    CategoryList:
+      type: array
+      description: List of available joke category identifiers.
+      items:
+        type: string
+        example: dev
