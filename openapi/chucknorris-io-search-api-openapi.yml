@@ -63,22 +63,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    SearchResult:
-      type: object
-      description: Result envelope returned by the search endpoint.
-      required:
-      - total
-      - result
-      properties:
-        total:
-          type: integer
-          description: Total number of jokes matching the query.
-          example: 17
-        result:
-          type: array
-          description: Matching jokes.
-          items:
-            $ref: '#/components/schemas/Joke'
     Joke:
       type: object
       description: A single Chuck Norris joke (fact).
@@ -120,6 +104,22 @@ components:
           type: string
           description: The Chuck Norris fact text.
           example: Chuck Norris can see around corners.
+    SearchResult:
+      type: object
+      description: Result envelope returned by the search endpoint.
+      required:
+      - total
+      - result
+      properties:
+        total:
+          type: integer
+          description: Total number of jokes matching the query.
+          example: 17
+        result:
+          type: array
+          description: Matching jokes.
+          items:
+            $ref: '#/components/schemas/Joke'
     Error:
       type: object
       description: Error envelope returned by the API.

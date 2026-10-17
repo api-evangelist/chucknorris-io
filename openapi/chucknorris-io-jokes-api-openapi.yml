@@ -95,6 +95,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
+  examples:
+    JokeById:
+      summary: Joke lookup by id
+      value:
+        categories:
+        - dev
+        created_at: '2020-01-05 13:42:25.099703'
+        icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+        id: Yke6bi5xSdWvSq_dkCCGkA
+        updated_at: '2020-01-05 13:42:25.099703'
+        url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
+        value: Chuck Norris's code compiles before he writes it.
+    JokeRandom:
+      summary: Random joke response
+      value:
+        categories: []
+        created_at: '2020-01-05 13:42:25.099703'
+        icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
+        id: GPGW82o1R8m3KhiKmKlpJA
+        updated_at: '2020-01-05 13:42:25.099703'
+        url: https://api.chucknorris.io/jokes/GPGW82o1R8m3KhiKmKlpJA
+        value: Chuck Norris can see around corners.
   schemas:
     Error:
       type: object
@@ -154,25 +176,3 @@ components:
           type: string
           description: The Chuck Norris fact text.
           example: Chuck Norris can see around corners.
-  examples:
-    JokeRandom:
-      summary: Random joke response
-      value:
-        categories: []
-        created_at: '2020-01-05 13:42:25.099703'
-        icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
-        id: GPGW82o1R8m3KhiKmKlpJA
-        updated_at: '2020-01-05 13:42:25.099703'
-        url: https://api.chucknorris.io/jokes/GPGW82o1R8m3KhiKmKlpJA
-        value: Chuck Norris can see around corners.
-    JokeById:
-      summary: Joke lookup by id
-      value:
-        categories:
-        - dev
-        created_at: '2020-01-05 13:42:25.099703'
-        icon_url: https://api.chucknorris.io/img/avatar/chuck-norris.png
-        id: Yke6bi5xSdWvSq_dkCCGkA
-        updated_at: '2020-01-05 13:42:25.099703'
-        url: https://api.chucknorris.io/jokes/Yke6bi5xSdWvSq_dkCCGkA
-        value: Chuck Norris's code compiles before he writes it.
